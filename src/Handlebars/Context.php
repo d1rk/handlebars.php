@@ -291,7 +291,7 @@ class Context
         } elseif (is_object($variable)) {
             if (isset($variable->$inside)) {
                 return $variable->$inside;
-            } elseif (is_callable(array($variable, $inside))) {
+            } elseif (method_exists($variable, $inside)) {
                 return call_user_func(array($variable, $inside));
             }
         }
